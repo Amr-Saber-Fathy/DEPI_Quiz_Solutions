@@ -13,6 +13,8 @@ public class Governorates {
 			, "FAIYUM", "MINYA", "ASYUT", "SOHAG", "QENA", "ASWAN", "LUXOR", "", "RED_SEA", "NEW_VALLEY"
 			, "MATROUH", "NORTH_SINAI", "SOUTH_SINAI"));
 	
+	//int[] x = {1,2,3,4,11,12,15,14,15,16,16,18,19,21,22,23,24,25,26,27,28,29,31,32,33,34,35};
+	
 	public String getGovernorateByCode(int code) 
 	{
 		return governorates.get(code);
