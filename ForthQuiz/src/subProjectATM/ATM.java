@@ -1,11 +1,15 @@
 package subProjectATM;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ATM {
 
-	private int atmID = 0;
+	private static int atmID = 0;
 	private String location = "";
 	private long remainingCurrency = 0;
-	private Client client = null;
+	private List<Integer> availableCash = new ArrayList<Integer>(Arrays.asList(0,0,0,0,0));
 	
 	//Constructors
 	public ATM() 
@@ -19,17 +23,12 @@ public class ATM {
 		setLocation(location);
 	}
 	
-	public ATM(String location, long remainingCurrency) 
+	public ATM(String location, List<Integer> availableCash) 
 	{
 		this(location);
-		setRemainingCurrency(remainingCurrency);
+		setAvailableCash(availableCash);
 	}
 	
-	public ATM(String location, long remainingCurrency, Client client) 
-	{
-		this(location, remainingCurrency);
-		setClient(client);
-	}
 	
 	//Getters and Setters
 	public int getAtmID() {
@@ -37,7 +36,7 @@ public class ATM {
 	}
 	
 	private void increaseAtmID() {
-		this.atmID++;
+		atmID++;
 	}
 	
 	public String getLocation() {
@@ -48,20 +47,18 @@ public class ATM {
 		this.location = location;
 	}
 	
-	public long getRemainingCurrency() {
+	public void setAvailableCash(List<Integer> availableCash) {
+		this.availableCash = availableCash;
+	}
+	
+	public long calculateRemainingCurrency() {
+		remainingCurrency = 0;
+		int[] values = {10, 20, 50, 100, 200};
+		for(int i=0; i< values.length; i++) 
+		{
+			remainingCurrency+= (long)(availableCash.get(i)*values[i]);
+		}
 		return remainingCurrency;
-	}
-	
-	public void setRemainingCurrency(long remainingCurrency) {
-		this.remainingCurrency = remainingCurrency;
-	}
-	
-	public Client getClient() {
-		return client;
-	}
-	
-	public void setClient(Client client) {
-		this.client = client;
 	}
 	
 	
