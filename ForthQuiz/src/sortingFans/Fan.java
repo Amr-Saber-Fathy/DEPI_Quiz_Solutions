@@ -1,11 +1,11 @@
-package forthQuizSolution;
+package sortingFans;
 
 public class Fan {
 
 	//Constants
-	final int SLOW = 1;
-	final int MEDIUM = 2;
-	final int FAST = 3;
+	final static int SLOW = 1;
+	final static int MEDIUM = 2;
+	final static int FAST = 3;
 
 	//Data Variables
 	private int speed = SLOW;
