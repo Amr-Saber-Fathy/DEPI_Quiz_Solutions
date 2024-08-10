@@ -1,10 +1,12 @@
 package items.Clothing;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
-public class Trousers extends ClothingWithSize{
+public class Trousers extends ClothingWithSize implements IsReturnable{
 	
-	public Trousers(String itemName, double itemPrice, double itemDiscount, String color, Object size) {
-		super(itemName, itemPrice, itemDiscount, color, size);
+	public Trousers(String itemName, double itemPrice, double itemDiscount, int itemQuantity, String color, Object size) {
+		super(itemName, itemPrice, itemDiscount, itemQuantity, color, size);
 	}
 
 	
@@ -28,12 +30,29 @@ public class Trousers extends ClothingWithSize{
 		}
 	}
 	
+//	@Override
+//	public String toString() 
+//	{
+//		return "Trousers : " + getMaxID() + " ==> " + getItemName() 
+//		+ " : " + getItemPrice() + "has a discount of : " 
+//		+ getItemDiscount() + " and the size : " + getSize();
+//	}
+	
 	@Override
 	public String toString() 
 	{
-		return "Trousers : " + getMaxID() + " ==> " + getItemName() 
-		+ " : " + getItemPrice() + "has a discount of : " 
-		+ getItemDiscount() + " and the size : " + getSize();
+		return String.format("%-20s %10.2f %10.2f %5d", this.getItemName(), this.getItemPrice(), this.getItemDiscount(), this.getItemQuantity());
+	}
+
+	
+	@Override
+	public boolean isReturnable(LocalDate soldDate) {
+		if(ChronoUnit.DAYS.between(LocalDate.now(), soldDate) <= 14) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 }

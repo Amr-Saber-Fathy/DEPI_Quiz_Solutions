@@ -4,8 +4,8 @@ public abstract class ClothingWithSize extends Clothing implements HaveSize{
 
 	private Object size = "";
 	
-	public ClothingWithSize(String itemName, double itemPrice, double itemDiscount, String color, Object size) {
-		super(itemName, itemPrice, itemDiscount, color);
+	public ClothingWithSize(String itemName, double itemPrice, double itemDiscount, int itemQuantity, String color, Object size) {
+		super(itemName, itemPrice, itemDiscount, itemQuantity, color);
 		setSize(size);
 	}
 
@@ -13,8 +13,9 @@ public abstract class ClothingWithSize extends Clothing implements HaveSize{
 		return size;
 	}
 
+	// || !(availableSizes.contains(size))
 	public void setSize(Object size) {
-		if(size == null || size == "" || !(availableSizes.contains(size))) {
+		if(size == null || size == "" ) {
 			System.out.println("Invalid size");
 		}
 		else {

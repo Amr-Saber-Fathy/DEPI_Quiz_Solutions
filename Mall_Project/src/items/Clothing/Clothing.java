@@ -6,8 +6,8 @@ public class Clothing extends Item{
 	
 	private String color = "";
 	
-	public Clothing(String itemName, double itemPrice, double itemDiscount, String color) {
-		super(itemName, itemPrice, itemDiscount);
+	public Clothing(String itemName, double itemPrice, double itemDiscount, int itemQuantity, String color) {
+		super(itemName, itemPrice, itemDiscount, itemQuantity);
 		setColor(color);
 	}
 

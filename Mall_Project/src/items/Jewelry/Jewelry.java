@@ -6,8 +6,8 @@ public class Jewelry extends Item{
 
 	private int karat = 0;
 	
-	public Jewelry(String itemName, double itemPrice, double itemDiscount, int karat) {
-		super(itemName, itemPrice, itemDiscount);
+	public Jewelry(String itemName, double itemPrice, double itemDiscount, int itemQuantity, int karat) {
+		super(itemName, itemPrice, itemDiscount, itemQuantity);
 		setKarat(karat);
 	}
 
