@@ -47,4 +47,11 @@ public class GymHall {
 		this.equipments = new ArrayList<Equipment>(Arrays.asList());
 	}
 	
+	//////////////////////////////////////////////////////////////////
+	@Override
+	public String toString() 
+	{
+		return "Hall No. : " + GymHall.getGymHallID() + " : "+ this.getGymHallName();
+	}
+	
 }

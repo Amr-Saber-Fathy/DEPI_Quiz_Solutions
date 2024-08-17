@@ -6,13 +6,23 @@ public class Trainer extends Person{
 
 	private int workingHours = 0;
 	private GymHall assignedHall = null;
+	private double rating = 0.0;
+	private double salary = 0.0;
 	
 	
 	////////////Constructor//////////////
-	public Trainer(String personName, int personAge, String personEmail, String personPhone, int workingHours, GymHall assignedHall) {
-		super(personName, personAge, personEmail, personPhone);
+	public Trainer(String personName, int personAge, double salary) {
+		super(personName, personAge);
+		this.setSalary(salary);
+		this.setRating(1.0);
+	}
+	
+	public Trainer(String personName, int personAge,double salary, String personEmail, String personPhone, String personPassword, int workingHours, GymHall assignedHall) {
+		super(personName, personAge, personEmail, personPhone, personPassword);
 		this.setWorkingHours(workingHours);
 		this.setAssignedHall(assignedHall);
+		this.setSalary(salary);
+		this.setRating(1.0);
 	}
 /////////////////////////////////////////////////
 
@@ -42,7 +52,41 @@ public class Trainer extends Person{
 		}
 	}
 
-	
+	public double getRating() {
+		return rating;
+	}
+
+	public void setRating(double rating) {
+		if(rating <= 0.0 || rating > 5.0) {
+			System.out.println("Invalid Value for Rating");
+		}
+		else {
+			this.rating = rating;
+		}
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		if(salary <= 0.0) {
+			System.out.println("Invalid Value for Salary");
+		}
+		else {
+			this.salary = salary;
+		}
+	}
+
+	/////////////////Additional Methods///////////////
+	public void increaseRating(double addRating) {
+		if(addRating <= 0.0 || addRating >= 1.5) {
+			System.out.println("Invalid Value for adding Rating");
+		}
+		else {
+			this.setRating(this.getRating() + addRating);
+		}
+	}
 	
 	
 }

@@ -2,8 +2,8 @@ package people;
 
 public class Manager extends Admin implements ManagerControl{
 
-	public Manager(String personName, int personAge, String personEmail, String personPhone) {
-		super(personName, personAge, personEmail, personPhone);
+	public Manager(String personName, int personAge, String personEmail, String personPhone, String personPassword) {
+		super(personName, personAge, personEmail, personPhone, personPassword);
 	}
 
 	@Override

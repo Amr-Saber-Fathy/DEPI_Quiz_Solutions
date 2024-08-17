@@ -7,15 +7,22 @@ public abstract class Person {
 	private int personAge = 0;
 	private String personEmail = ""; 
 	private String personPhone = "";
+	private String personPassword = "";
 	
-	//////////////////Constructor/////////////
-	public Person(String personName, int personAge, String personEmail, String personPhone) 
+	//////////////////Constructors/////////////
+	public Person(String personName, int personAge) 
 	{
 		setPersonID();
 		this.setPersonName(personName);
 		this.setPersonAge(personAge);
+	}
+	
+	public Person(String personName, int personAge, String personEmail, String personPhone, String personPassword) 
+	{
+		this(personName, personAge);
 		this.setPersonEmail(personEmail);
 		this.setPersonPhone(personPhone);
+		this.setPersonPassword(personPassword);
 	}
 
 	
@@ -59,7 +66,7 @@ public abstract class Person {
 	}
 
 	public void setPersonEmail(String personEmail) {
-		if(personEmail == null || personEmail == "" || personEmail.length() <= 15 || !(personEmail.contains("@"))) {
+		if(personEmail == null || personEmail == "" || personEmail.length() <= 12 || !(personEmail.contains("@"))) {
 			System.out.println("Invalid Email");
 		}
 		else {
@@ -76,9 +83,36 @@ public abstract class Person {
 			System.out.println("Invalid Phone Number");
 		}
 		else {
-			this.personPhone = personPhone;
+			try{
+				Integer.parseInt(personPhone);
+				this.personPhone = personPhone;
+			}catch (Exception e) {
+				System.out.println("Invalid Phone Number : " + e.getMessage());
+			}
 		}
 	}
 	
+	public String getPersonPassword() {
+		return personPassword;
+	}
+
+
+	public void setPersonPassword(String personPassword) {
+		if(personPassword == null || personPassword == "" || personPassword.length() < 6) {
+			System.out.println("Invalid Password");
+		}
+		else {
+			this.personPassword = personPassword;
+		}
+	}
+	
+	///////////////////////////////////////////////
+	
+	@Override
+	public String toString() 
+	{
+		return "Mr/Ms " + this.getPersonName() + " : " + this.getPersonAge() + " years old. His/Her Email address : " + this.getPersonEmail();
+	}
+
 	
 }

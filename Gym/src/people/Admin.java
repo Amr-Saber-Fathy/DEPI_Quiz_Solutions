@@ -1,13 +1,14 @@
 package people;
 
+
 import facility.Equipment;
 import facility.GymHall;
 import papers.ExercisePlan;
 
 public class Admin extends Person implements AdminControl{
 
-	public Admin(String personName, int personAge, String personEmail, String personPhone) {
-		super(personName, personAge, personEmail, personPhone);
+	public Admin(String personName, int personAge, String personEmail, String personPhone, String personPassword) {
+		super(personName, personAge, personEmail, personPhone, personPassword);
 	}
 
 	@Override
@@ -83,6 +84,13 @@ public class Admin extends Person implements AdminControl{
 		
 	}
 
-	//////////Additional Methods/////////////
+	//////////////////Additional Methods//////////////////////////
+	Utils checkdiscount = (t -> {if(t.getPoints() >= 100) {
+									return t.getSubcription().getPrice()*t.getSubcription().getDiscount();
+									}
+								else{
+									return t.getSubcription().getPrice();
+									}
+						});
 	
 }

@@ -3,12 +3,14 @@ package papers;
 import java.time.LocalDate;
 
 
-public class Subscription {
+public class Subscription{
 
 	private static int subscriptionID = 0;
 	private String subscriptionType = "";
 	private LocalDate startDate = null;
 	private LocalDate endtDate = null;
+	private double price = 0.0;
+	private double discount = 0.0;
 	
 	////////////Constructor///////////////
 	public Subscription(String subscriptionType, LocalDate startDate, LocalDate endtDate) 
@@ -67,6 +69,31 @@ public class Subscription {
 		}
 	}
 
-	
-	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		if(price <= 0) {
+			System.out.println("Invalid value for price");
+		}
+		else {
+			this.price = price;
+		}
+	}
+
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		if(discount <= 0.0 || discount >= 0.5) {
+			System.out.println("Invalid value for discount");
+		}
+		else {
+			this.discount = discount;
+		}
+	}
+
+	///////////Additional Methods///////////////
 }

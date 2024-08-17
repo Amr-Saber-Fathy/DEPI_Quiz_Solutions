@@ -7,13 +7,22 @@ public class Trainee extends Person{
 
 	private Subscription subcription = null;
 	private ExercisePlan plan = null;
+	private int points = 0;
 	
-	public Trainee(String personName, int personAge, String personEmail, String personPhone, Subscription subcription, ExercisePlan plan) {
-		super(personName, personAge, personEmail, personPhone);
-		this.setSubcription(subcription);
-		this.setPlan(plan);
+	//////////Constructors//////////////////////
+	public Trainee(String personName, int personAge) {
+		super(personName, personAge);
+		this.setPoints(50);
 	}
 
+	public Trainee(String personName, int personAge, String personEmail, String personPhone, String personPassword, Subscription subcription, ExercisePlan plan) {
+		super(personName, personAge, personEmail, personPhone, personPassword);
+		this.setSubcription(subcription);
+		this.setPlan(plan);
+		this.setPoints(50);
+	}
+
+	/////////Getters and Setters/////////////////
 	public Subscription getSubcription() {
 		return subcription;
 	}
@@ -37,6 +46,30 @@ public class Trainee extends Person{
 		}
 		else {
 			this.plan = plan;
+		}
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		if(points < 0) {
+			System.out.println("Invalid Value for Points");
+		}
+		else {
+			this.points = points;
+		}
+	}
+	
+	
+	/////////////Additional Methods//////////////
+	public void increasePoints(int addPoints) {
+		if(addPoints <= 0) {
+			System.out.println("Invalid Value for added points");
+		}
+		else {
+			this.setPoints(this.getPoints() + addPoints);
 		}
 	}
 }
