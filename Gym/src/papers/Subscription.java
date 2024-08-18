@@ -22,7 +22,7 @@ public class Subscription{
 	}
 
 	////////////Getters and setters////////////
-	public static int getSubscriptionID() {
+	public int getSubscriptionID() {
 		return subscriptionID;
 	}
 

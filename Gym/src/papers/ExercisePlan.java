@@ -27,7 +27,7 @@ public class ExercisePlan implements ControlSteps{
 	}
 
 	/////////Getters and Setters////////////
-	public static int getEcercisePlanID() {
+	public int getEcercisePlanID() {
 		return ecercisePlanID;
 	}
 

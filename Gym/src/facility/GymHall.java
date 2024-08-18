@@ -18,7 +18,7 @@ public class GymHall {
 	}
 
 	//////////Getters and Setters/////////
-	public static int getGymHallID() {
+	public int getGymHallID() {
 		return gymHallID;
 	}
 
@@ -51,7 +51,7 @@ public class GymHall {
 	@Override
 	public String toString() 
 	{
-		return "Hall No. : " + GymHall.getGymHallID() + " : "+ this.getGymHallName();
+		return "Hall No. : " + this.getGymHallID() + " : "+ this.getGymHallName();
 	}
 	
 }

@@ -15,7 +15,7 @@ public class Equipment {
 
 	
 	/////////Getters and Setters//////////////
-	public static int getEquipmentID() {
+	public int getEquipmentID() {
 		return equipmentID;
 	}
 

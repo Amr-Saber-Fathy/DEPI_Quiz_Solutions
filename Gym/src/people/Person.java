@@ -2,7 +2,8 @@ package people;
 
 public abstract class Person {
 
-	private static int personID = 0;
+	private static int id = 0;
+	private int personID = 0;
 	private String personName = "";
 	private int personAge = 0;
 	private String personEmail = ""; 
@@ -12,7 +13,8 @@ public abstract class Person {
 	//////////////////Constructors/////////////
 	public Person(String personName, int personAge) 
 	{
-		setPersonID();
+		setId();
+		this.setPersonID(this.getId());
 		this.setPersonName(personName);
 		this.setPersonAge(personAge);
 	}
@@ -27,12 +29,21 @@ public abstract class Person {
 
 	
 	//////////Getters and Setters/////////////
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId() {
+		Person.id ++;
+	}
+	
 	public int getPersonID() {
 		return personID;
 	}
 
-	private void setPersonID() {
-		Person.personID ++;
+	private void setPersonID(int currentID) {
+		this.personID = currentID;
 	}
 
 	public String getPersonName() {
@@ -113,6 +124,7 @@ public abstract class Person {
 	{
 		return "Mr/Ms " + this.getPersonName() + " : " + this.getPersonAge() + " years old. His/Her Email address : " + this.getPersonEmail();
 	}
+
 
 	
 }
