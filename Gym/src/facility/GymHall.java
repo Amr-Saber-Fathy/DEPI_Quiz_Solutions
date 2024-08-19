@@ -6,24 +6,34 @@ import java.util.List;
 
 public class GymHall {
 
-	private static int gymHallID = 0;
+	private static int id = 0;
+	private int gymHallID = 0;
 	private String gymHallName = "";
 	private List<Equipment> equipments;
 	
 	public GymHall(String gymHallName) 
 	{
-		setGymHallID();
+		this.setId();
+		this.setGymHallID(this.getId());
 		this.setGymHallName(gymHallName);
 		setEquipments();
 	}
 
 	//////////Getters and Setters/////////
+	public int getId() {
+		return id;
+	}
+
+	public void setId() {
+		GymHall.id ++;
+	}
+	
 	public int getGymHallID() {
 		return gymHallID;
 	}
 
-	private static void setGymHallID() {
-		GymHall.gymHallID ++;
+	private void setGymHallID(int gymID) {
+		this.gymHallID = gymID;
 	}
 
 	public String getGymHallName() {
@@ -53,5 +63,7 @@ public class GymHall {
 	{
 		return "Hall No. : " + this.getGymHallID() + " : "+ this.getGymHallName();
 	}
+
+	
 	
 }

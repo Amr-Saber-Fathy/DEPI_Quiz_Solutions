@@ -5,7 +5,8 @@ import java.time.LocalDate;
 
 public class Subscription{
 
-	private static int subscriptionID = 0;
+	private static int id = 0;
+	private int subscriptionID = 0;
 	private String subscriptionType = "";
 	private LocalDate startDate = null;
 	private LocalDate endtDate = null;
@@ -15,19 +16,28 @@ public class Subscription{
 	////////////Constructor///////////////
 	public Subscription(String subscriptionType, LocalDate startDate, LocalDate endtDate) 
 	{
-		setSubscriptionID();
+		this.setId();
+		setSubscriptionID(this.getId());
 		this.setSubscriptionType(subscriptionType);
 		this.setStartDate(startDate);
 		this.setEndtDate(endtDate);
 	}
 
 	////////////Getters and setters////////////
+	public int getId() {
+		return id;
+	}
+
+	public void setId() {
+		Subscription.id ++;
+	}
+	
 	public int getSubscriptionID() {
 		return subscriptionID;
 	}
 
-	private static void setSubscriptionID() {
-		Subscription.subscriptionID ++;
+	private void setSubscriptionID(int subID) {
+		this.subscriptionID ++;
 	}
 
 	public String getSubscriptionType() {
@@ -94,6 +104,8 @@ public class Subscription{
 			this.discount = discount;
 		}
 	}
+
+	
 
 	///////////Additional Methods///////////////
 }

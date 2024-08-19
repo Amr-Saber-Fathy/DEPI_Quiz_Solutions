@@ -13,7 +13,7 @@ public abstract class Person {
 	//////////////////Constructors/////////////
 	public Person(String personName, int personAge) 
 	{
-		setId();
+		this.setId();
 		this.setPersonID(this.getId());
 		this.setPersonName(personName);
 		this.setPersonAge(personAge);

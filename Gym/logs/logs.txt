@@ -1,0 +1,32 @@
+C:\Program Files\MySQL\MySQL Server 8.4\bin\mysqld.exe, Version: 8.4.2 (MySQL Community Server - GPL). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time                 Id Command    Argument
+2024-08-18T20:21:13.535737Z	    0 Execute	CREATE TABLE performance_schema.innodb_redo_log_files(
+`FILE_ID` BIGINT NOT NULL COMMENT 'Id of the file.',
+`FILE_NAME` VARCHAR(2000) NOT NULL COMMENT 'Path to the file.',
+`START_LSN` BIGINT NOT NULL COMMENT 'LSN of the first block in the file.',
+`END_LSN` BIGINT NOT NULL COMMENT 'LSN after the last block in the file.',
+`SIZE_IN_BYTES` BIGINT NOT NULL COMMENT 'Size of the file (in bytes).',
+`IS_FULL` TINYINT NOT NULL COMMENT '1 iff file has no free space inside.',
+`CONSUMER_LEVEL` INT NOT NULL COMMENT 'All redo log consumers registered on smaller levels than this value, have already consumed this file.'
+)engine = 'performance_schema'
+2024-08-18T20:21:15.326976Z	    8 Connect	root@localhost on  using SSL/TLS
+2024-08-18T20:21:15.327490Z	    8 Query	SELECT @@max_allowed_packet, @@character_set_client, 
+        @@character_set_connection, @@license, @@sql_mode, @@lower_case_table_names, @@autocommit
+2024-08-18T20:21:15.327956Z	    8 Query	SELECT TIMEDIFF(NOW(), UTC_TIMESTAMP())
+2024-08-18T20:21:15.328307Z	    8 Query	SHOW COLLATION
+2024-08-18T20:21:15.335049Z	    8 Query	SET NAMES utf8mb4
+2024-08-18T20:21:15.335340Z	    8 Query	SET character_set_results=NULL
+2024-08-18T20:21:15.335584Z	    8 Quit	
+2024-08-18T20:21:40.045864Z	    9 Connect	Amr@localhost on gym using SSL/TLS
+2024-08-18T20:21:40.055563Z	    9 Query	/* mysql-connector-j-9.0.0 (Revision: e0e8e3461e5257ba4aa19e6b3614a2685b298947) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-08-18T20:21:40.068155Z	    9 Query	SET character_set_results = NULL
+2024-08-18T20:21:40.072014Z	    9 Query	SET autocommit=1
+2024-08-18T20:21:40.083337Z	    9 Query	SELECT Person.Name, Person.Email, Trainer.Rating FROM Person INNER JOIN Trainer ON Person.Id = Trainer.Id WHERE Trainer.Id = 1
+2024-08-18T20:21:40.150641Z	    9 Quit	
+2024-08-18T20:22:14.882108Z	   10 Connect	Amr@localhost on gym using SSL/TLS
+2024-08-18T20:22:14.894785Z	   10 Query	/* mysql-connector-j-9.0.0 (Revision: e0e8e3461e5257ba4aa19e6b3614a2685b298947) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-08-18T20:22:14.906055Z	   10 Query	SET character_set_results = NULL
+2024-08-18T20:22:14.909206Z	   10 Query	SET autocommit=1
+2024-08-18T20:22:14.925440Z	   10 Query	SELECT Person.Name, Person.Email, Trainer.Rating FROM Person INNER JOIN Trainer ON Person.Id = Trainer.Id WHERE Trainer.Id = 1
+2024-08-18T20:22:14.985330Z	   10 Quit	
