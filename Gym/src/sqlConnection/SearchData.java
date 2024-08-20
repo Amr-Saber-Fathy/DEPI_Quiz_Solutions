@@ -88,7 +88,7 @@ public class SearchData {
     //*****************************************************************************************************************//
     public static boolean checkAdmin(String adminEmail) 
     {
-    	String query = "SELECT 1 FROM Person INNER JOIN Admin ON Person.Id = Admin.Id WHERE email = ?";
+    	String query = "SELECT 1 FROM Person p JOIN Admin a ON p.Id = a.PersonId WHERE p.email = ?";
 
         try (Connection connection = DriverManager.getConnection(url, username, password);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -116,7 +116,7 @@ public class SearchData {
     //*****************************************************************************************************************//
     public static boolean checkAdminPass(String adminEmail, String adminPass) 
     {
-    	String query = "SELECT Password FROM Person INNER JOIN Admin ON Person.Id = Admin.Id WHERE email = ?";
+    	String query = "SELECT Password FROM Person INNER JOIN Admin ON Person.Id = Admin.PersonId WHERE Person.email = ?";
 
         try (Connection connection = DriverManager.getConnection(url, username, password);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {

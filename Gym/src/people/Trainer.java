@@ -1,11 +1,10 @@
 package people;
 
-import facility.GymHall;
 
 public class Trainer extends Person{
 
 	private int workingHours = 0;
-	private GymHall assignedHall = null;
+	private int assignedHall = 0;
 	private double rating = 0.0;
 	private double salary = 0.0;
 	
@@ -17,7 +16,7 @@ public class Trainer extends Person{
 		this.setRating(1.0);
 	}
 	
-	public Trainer(String personName, int personAge,double salary, String personEmail, String personPhone, String personPassword, int workingHours, GymHall assignedHall) {
+	public Trainer(String personName, int personAge,double salary, String personEmail, String personPhone, String personPassword, int workingHours, int assignedHall) {
 		super(personName, personAge, personEmail, personPhone, personPassword);
 		this.setWorkingHours(workingHours);
 		this.setAssignedHall(assignedHall);
@@ -39,12 +38,12 @@ public class Trainer extends Person{
 		}
 	}
 
-	public GymHall getAssignedHall() {
+	public int getAssignedHall() {
 		return assignedHall;
 	}
 
-	public void setAssignedHall(GymHall assignedHall) {
-		if(assignedHall == null) {
+	public void setAssignedHall(int assignedHall) {
+		if(assignedHall <= 0) {
 			System.out.println("Invalid Gym Hall");
 		}
 		else {

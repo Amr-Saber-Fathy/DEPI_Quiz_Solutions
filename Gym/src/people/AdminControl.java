@@ -20,17 +20,17 @@ public interface AdminControl {
 	
 	///////////Control Methods////////////////////
 	void addHall(GymHall hall);
-	void removeHall(GymHall hall);
+	void removeHall(int hallID);
 	
-	void addEquipment(GymHall hall, Equipment equipment);
-	void removeEquipment(GymHall hall, Equipment equipment);
+	void addEquipment(int hallID, Equipment equipment);
+	void removeEquipment(int equipmentID);
 	
 	void addTrainer(Trainer trainer);
-	void removeTrainer(Trainer trainer);
+	void removeTrainer(int trainerID);
 	void assigneTrainer(Trainer trainer, GymHall hall);
 	
 	void addTrainee(Trainee trainee);
-	void removeTrainee(Trainee trainee);
+	void removeTrainee(int traineeID);
 	void changeTraineePlan(Trainee trainee, ExercisePlan plan);
 	
 }

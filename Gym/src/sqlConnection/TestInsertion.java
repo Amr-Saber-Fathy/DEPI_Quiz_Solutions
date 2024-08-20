@@ -1,6 +1,5 @@
 package sqlConnection;
 
-import java.time.LocalDate;
 
 import facility.Equipment;
 import facility.GymHall;
@@ -16,12 +15,12 @@ public class TestInsertion {
 	public static void main(String[] args) {
 
 		GymHall hall1 = new GymHall("Main Hall");
-		Trainer tainer101 = new Trainer("Ali", 24, 3500, "Test123@gmail.com", "01243126589", "test123", 8, hall1);
+		Trainer tainer101 = new Trainer("Ali", 24, 3500, "Test123@gmail.com", "01243126589", "test123", 8, hall1.getGymHallID());
 		SQLConnection.insertGymHall(hall1);
 		SQLConnection.insertTrainer(tainer101);
 		//////////////////////////////////////////////
 		
-		Subscription sub = new Subscription("Gold", LocalDate.now(), LocalDate.now().plusDays(30));
+		Subscription sub = new Subscription("silver");
 		ExercisePlan exPlan = new ExercisePlan(15);
 		exPlan.addStep("Do 4*13 Pushup");
 		exPlan.addStep("Do 4*13 Caplecross");
@@ -45,7 +44,7 @@ public class TestInsertion {
 		SQLConnection.insertEquipment(eq);
 		//////////////////////////////////////////////
 		
-		SQLConnection.addEqToHall(eq, hall1);
+		SQLConnection.addEqToHall(eq, hall1.getGymHallID());
 	}
 
 }

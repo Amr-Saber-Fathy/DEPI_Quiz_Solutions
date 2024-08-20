@@ -14,13 +14,28 @@ public class Subscription{
 	private double discount = 0.0;
 	
 	////////////Constructor///////////////
-	public Subscription(String subscriptionType, LocalDate startDate, LocalDate endtDate) 
+	public Subscription(String subscriptionType) 
 	{
 		this.setId();
 		setSubscriptionID(this.getId());
 		this.setSubscriptionType(subscriptionType);
-		this.setStartDate(startDate);
-		this.setEndtDate(endtDate);
+		this.setStartDate(LocalDate.now());
+		switch (subscriptionType.toLowerCase()) {
+		case "bronze": {
+			this.setEndtDate(this.getStartDate().plusDays(30));
+			break;
+		}
+		case "silver": {
+			this.setEndtDate(this.getStartDate().plusDays(60));
+			break;
+		}
+		case "gold": {
+			this.setEndtDate(this.getStartDate().plusDays(90));
+			break;
+		}
+		default:
+			System.out.println("Unexpected value: " + subscriptionType);
+		}
 	}
 
 	////////////Getters and setters////////////
